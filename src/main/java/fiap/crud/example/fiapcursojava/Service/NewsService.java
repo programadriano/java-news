@@ -1,20 +1,43 @@
 package fiap.crud.example.fiapcursojava.Service;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import fiap.crud.example.fiapcursojava.Model.News;
+import fiap.crud.example.fiapcursojava.Repository.INewsRepository;
+
 import java.util.List;
 import java.util.Optional;
 
-import fiap.crud.example.fiapcursojava.Model.News;
+@Service
+public class NewsService implements INewsService {
 
-public interface NewsService {
+    @Autowired
+    private INewsRepository _newsRepository;
 
-    News Save(News news);
+    @Override
+    public News Save(News news) {
+        return _newsRepository.save(news);
+    }
 
-    List<News> FindAll();
+    @Override
+    public List<News> FindAll() {
+        return _newsRepository.findAll();
+    }
 
-    Optional<News> FindById(Long id);
+    @Override
+    public Optional<News> FindById(Long id) {
+        return _newsRepository.findById(id);
+    }
 
-    News Update(News news);
+    @Override
+    public News Update(News news) {
+        return _newsRepository.save(news);
+    }
 
-    void DeleteById(Long id);
+    @Override
+    public void DeleteById(Long id) {
+        _newsRepository.deleteById(id);
+    }
 
 }

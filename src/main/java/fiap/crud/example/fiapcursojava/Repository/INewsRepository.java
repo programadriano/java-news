@@ -4,6 +4,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import fiap.crud.example.fiapcursojava.Model.News;
 
-public interface NewsRepository extends JpaRepository<News, Long> {
+public interface INewsRepository extends JpaRepository<News, Long> {
 
 }
